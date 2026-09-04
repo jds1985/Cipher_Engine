@@ -1,0 +1,30 @@
+{
+  "name": "cipher-engine",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "cross-env HOST=0.0.0.0 next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "cross-env": "^7.0.3",
+    "lucide-react": "^0.378.0",
+    "onnxruntime-web": "^1.18.0",
+    "@huggingface/transformers": "^3.0.0",
+    "helia": "^4.2.0",
+    "@helia/unixfs": "^3.0.0",
+    "libp2p": "^1.4.0",
+    "@libp2p/websockets": "^8.0.0",
+    "@chainsafe/libp2p-noise": "^15.0.0",
+    "@libp2p/mplex": "^10.0.0",
+    "@libp2p/bootstrap": "^10.0.0"
+  }
+}
