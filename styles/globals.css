@@ -11,7 +11,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  background-color: #05050b;
+  background-color: #02030a;
   color: #f8fafc;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
@@ -24,13 +24,13 @@ pre,
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Base Engine Layout Scaffolding */
+/* Engine Wrapper Shell */
 .cipher-wrap {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background: #05050b;
+  background: #02030a;
   position: relative;
   overflow: hidden;
 }
@@ -41,6 +41,10 @@ pre,
   left: 0;
   right: 0;
   z-index: 30;
+  padding: 12px 20px;
+  background: rgba(2, 3, 10, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .cipher-main {
@@ -48,33 +52,127 @@ pre,
   display: flex;
   overflow: hidden;
   position: relative;
-  padding-top: 56px; /* clearance for floating header */
+  padding-top: 60px;
 }
 
 .cipher-chat {
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   overflow-y: auto;
-  position: relative;
+  padding: 20px;
 }
 
-/* Custom Scrollbars */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* Cold Boot Hardware Card Fallbacks */
+.bg-slate-900\/80 {
+  background-color: rgba(15, 23, 42, 0.85);
 }
 
-::-webkit-scrollbar-track {
-  background: #05050b;
+.border-slate-700\/50 {
+  border: 1px solid rgba(51, 65, 85, 0.5);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 3px;
+.max-w-sm {
+  max-width: 420px;
+  width: 100%;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.p-6 {
+  padding: 24px;
+}
+
+.rounded-xl {
+  border-radius: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(34, 211, 238, 0.1);
+}
+
+.text-cyan-400 {
+  color: #22d3ee;
+}
+
+.text-slate-400 {
+  color: #94a3b8;
+}
+
+.text-slate-300 {
+  color: #cbd5e1;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Cold Boot Action Button */
+button.w-full {
+  width: 100%;
+  cursor: pointer;
+}
+
+.bg-slate-800\/90 {
+  background-color: rgba(30, 41, 59, 0.9);
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.rounded-lg {
+  border-radius: 10px;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.transition {
+  transition: all 0.2s ease-in-out;
+}
+
+button.w-full:hover:not(:disabled) {
+  background-color: rgba(51, 65, 85, 0.9);
+  border-color: rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.25);
 }
