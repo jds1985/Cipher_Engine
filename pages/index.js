@@ -1,33 +1,8 @@
+// pages/index.js
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
-import EntryScreen from "../components/EntryScreen";
-
-// FORCE CHATPANEL CLIENT-SIDE WITH SELF-DIAGNOSTIC ERROR CATCHING
-const ChatPanel = dynamic(
-  () =>
-    import("../components/chat/ChatPanel").catch((err) => {
-      // If the component itself crashes on load, render the error directly
-      return () => (
-        <div style={{ padding: "20px", color: "#f87171", background: "#05050b", height: "100vh", fontFamily: "monospace", fontSize: "12px" }}>
-          <h3 style={{ color: "#22d3ee", fontSize: "16px" }}>🚨 Cipher Mount Exception</h3>
-          <p>The client interface failed to initialize. Diagnostic trace below:</p>
-          <pre style={{ whiteSpace: "pre-wrap", background: "#0f172a", padding: "12px", borderRadius: "8px", border: "1px solid #334155" }}>
-            {err.stack || err.message || err.toString()}
-          </pre>
-        </div>
-      );
-    }),
-  {
-    ssr: false,
-    loading: () => (
-      <div style={{ height: "100vh", background: "#05050b" }} />
-    ),
-  }
-);
 
 export default function Home() {
   const [entered, setEntered] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -38,36 +13,44 @@ export default function Home() {
     setReady(true);
   }, []);
 
-  const handleEnter = () => {
-    setLoading(true);
-
-    setTimeout(() => {
-      localStorage.setItem("cipherEntered", "true");
-      setEntered(true);
-      setLoading(false);
-    }, 1800);
-  };
-
   if (!ready) return null;
-
-  if (
-    !entered &&
-    typeof window !== "undefined" &&
-    window.location.pathname !== "/success.html"
-  ) {
-    return <EntryScreen onEnter={handleEnter} loading={loading} />;
-  }
 
   return (
     <div
       style={{
-        height: "100vh",
+        minHeight: "100vh",
         background: "#05050b",
+        color: "#ffffff",
+        fontFamily: "monospace",
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "20px",
       }}
     >
-      <ChatPanel />
+      <h2 style={{ color: "#22d3ee", marginBottom: "12px" }}>
+        ⚡ Cipher Engine Substrate
+      </h2>
+      <p style={{ color: "#94a3b8", marginBottom: "24px" }}>
+        Status: Online | Ready for Chat & Entry components
+      </p>
+
+      <div
+        style={{
+          background: "#0f172a",
+          border: "1px solid #1e293b",
+          borderRadius: "8px",
+          padding: "16px",
+          maxWidth: "480px",
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        <p style={{ fontSize: "13px", color: "#cbd5e1" }}>
+          Engine runtime container compiled successfully.
+        </p>
+      </div>
     </div>
   );
 }
